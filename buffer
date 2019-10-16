@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+#define MAX 30
+void dup(char *p,int *n)
+{
+int i,j;
+
+for(i=0;p[i];i++)
+{
+	p[i]=p[i+(n[0]+1)];
+}
+printf("string=%s\nlen=%d\n",p,strlen(p));
+
+}
+
+
+int main()
+{
+	static char buf[MAX],store[MAX];
+	int a[MAX];
+	int index=0;
+	int len=0;
+	while(len<MAX)
+	{
+		static int i;
+		printf("Enter data\n");
+		scanf("%s",buf);
+		//len+=strlen(buf);
+		printf("i=%d\n",i);
+		strcpy(store+(len),buf);
+		i=1;
+		store[len+1]='\n';
+		len+=strlen(buf);
+		a[index++]=len;
+		printf("length=%d\n",len);
+	}
+	printf("%s\n",store);
+	//dup(store,a);
+}
